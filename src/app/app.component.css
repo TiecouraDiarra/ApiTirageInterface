@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    min-height: 100vh;
+}
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+}
+
+img{
+    margin-top: 70px;
+    width : 15vw;
+    height: 8vw;
+}
+
+.side-menu{
+    position: fixed;
+    background: #004466;
+    width: 20vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2rem;
+}
+
+.trait
+{
+    margin-top: 70px;
+    margin-left: 10px;
+    color: black;
+    width : 250px;
+}
+
+.side-menu .brand-name{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.side-menu ul{
+    margin-top: 35px;
+
+}
+
+.side-menu li{
+    font-size: 24px;
+    padding: 10px 40px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.side-menu ul li.active{
+    background: #EA8B04;
+}
+
+.side-menu li:hover{
+    background: #EA8B04;
+    color: white;
+}
+
+.container{
+    position: absolute;
+    right: 0;
+    width: 78vw;
+    height: 100vh;
+    background: #f1f1f1;
+}
+
+.container .header{
+    margin-top: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 78vw;
+    height: 10vh;
+    background: #EA8B04;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container .header .nav h1{
+    DISPLAY: flex;
+    color: white;
+    JUSTIFY-CONTENT: center;
+    margin-top: 10px;
+}
