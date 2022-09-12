@@ -16,9 +16,9 @@
                         <th>Action</th>
                     </tr>
                     <tr>
-                        <td>1</td>
-                        <td>Tirage 1</td>
-                        <td>15-09-2022</td>
+                        <td>{{detailstirage.idTirage}}</td>
+                        <td>{{detailstirage.dateTirage}}</td>
+                        <td>{{detailstirage.Libelle}}</td>
                         <td><a routerLink="/detailslistes" routerLinkActive="active" class="btn">Retour</a></td>
                     </tr>
                 </table>
@@ -31,21 +31,21 @@
                     <h2>La liste des postulants tirés :</h2>
                 </div>
                 <table id="entete">
-                    <tr>
+                    <tr *ngIf="postulanttires.length >  0">
                         <th>N°</th>
                         <th>Nom</th>
                         <th>Prénom</th>
                         <th>Numéro</th>
                         <th>E-mail</th>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>DIARRA</td>
-                        <td>Tiècoura</td>
-                        <td>70804808</td>
-                        <td>tiec@gmail.com</td>
+                    <tr *ngFor="let postulanttire of postulanttires">
+                        <td>{{postulanttire.id}}</td>
+                        <td>{{postulanttire.nomPostulant}}</td>
+                        <td>{{postulanttire.prenomPostulant}}</td>
+                        <td>{{postulanttire.numeroPostulant}}</td>
+                        <td>{{postulanttire.emailPostulant}}</td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td>2</td>
                         <td>DIARRA</td>
                         <td>Tiècoura</td>
@@ -58,7 +58,7 @@
                         <td>Tiècoura</td>
                         <td>70804808</td>
                         <td>tiec@gmail.com</td>
-                    </tr>
+                    </tr> -->
                 </table>
             </div>
         </div>
