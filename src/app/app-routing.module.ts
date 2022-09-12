@@ -21,11 +21,11 @@ const routes: Routes = [
     component:TirageComponent
   },
   {
-    path:"detailtirage",
+    path:"detailtirage/:id",
     component:DetailstiragesComponent
   },
   {
-    path:"detailslistes",
+    path:"detailslistes/:id",
     component:DetailslistesComponent
   },
   

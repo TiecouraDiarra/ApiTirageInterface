@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PostulanttireService } from '../service/postulanttire.service';
 
 @Component({
   selector: 'app-accueil',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccueilComponent implements OnInit {
 
-  constructor() { }
+
+  liste : any;
+  constructor(private service : PostulanttireService, private router:Router) { }
 
   ngOnInit(): void {
+    this.service.getToutesListe().subscribe(data=>{
+      this.liste=data;
+    })
+  }
+
+  goToDettailliste(id:number){
+    console.log(id);
+    return this.router.navigate(['detailslistes', id])
   }
 
 }

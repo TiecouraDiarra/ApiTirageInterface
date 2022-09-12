@@ -29,15 +29,24 @@
         <div class="content-2">
             <div class="recent-payments">
                 <div class="cards">
-                    <a routerLink="/detailslistes" routerLinkActive="active">
-                        <div class="card">
+                        <div class="card" *ngFor="let listes of liste">
+                            <a (click)="goToDettailliste(listes[0])">
+                                <div class="box">
+                                    <h1>{{listes[2]}}</h1>
+                                    <h3>3 Tirages</h3>
+                                </div>
+                            </a>
+                        </div>
+                    
+                    <!-- <a routerLink="/detailslistes" routerLinkActive="active">
+                        <div class="card" *ngFor="let listes of liste">
                             <div class="box">
-                                <h1>Liste 1</h1>
+                                <h1>{{listes[2]}}</h1>
                                 <h3>3 Tirages</h3>
                             </div>
                         </div>
-                    </a>
-                    <div class="card">
+                    </a> -->
+                    <!-- <div class="card">
                         <div class="box">
                             <h1>Liste 2</h1>
                             <h3>3 Tirages</h3>
@@ -126,7 +135,7 @@
                             <h1>Liste 4</h1>
                             <h3>3 Tirages</h3>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!--<div class="new-students"></div>-->

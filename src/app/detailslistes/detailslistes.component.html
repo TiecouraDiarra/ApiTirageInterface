@@ -15,10 +15,10 @@
                         <th>Date</th>
                         <th>Nombre Tirage</th>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Liste 1</td>
-                        <td>15-09-2022</td>
+                    <tr *ngFor="let listes of liste">
+                        <td>{{listes[0]}}</td>
+                        <td>{{listes[2]}}</td>
+                        <td>{{listes[1]}}</td>
                         <td>3</td>
                     </tr>
                 </table>
@@ -37,13 +37,13 @@
                         <th>Date</th>
                         <th>Action</th>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Tirage 1</td>
-                        <td>15-09-2022</td>
-                        <td><a routerLink="/detailtirage" routerLinkActive="active" class="btn">Savoir plus</a></td>
+                    <tr *ngFor="let tirages of tirage">
+                        <td>{{tirages[0]}}</td>
+                        <td>{{tirages[2]}}</td>
+                        <td>{{tirages[1]}}</td>
+                        <td><a (click)="goToDettailliste(tirages[0])" class="btn">Savoir plus</a></td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td>2</td>
                         <td>Tirage 2</td>
                         <td>15-09-2022</td>
@@ -54,7 +54,7 @@
                         <td>Tirage 3</td>
                         <td>15-09-2022</td>
                         <td><a routerLink="/detailtirage" routerLinkActive="active" class="btn">Savoir plus</a></td>
-                    </tr>
+                    </tr> -->
                 </table>
             </div>
         </div>

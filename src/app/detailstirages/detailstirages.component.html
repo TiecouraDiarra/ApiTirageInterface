@@ -16,10 +16,10 @@
                         <th>Action</th>
                     </tr>
                     <tr>
-                        <td>{{detailstirage.idTirage}}</td>
-                        <td>{{detailstirage.dateTirage}}</td>
-                        <td>{{detailstirage.Libelle}}</td>
-                        <td><a routerLink="/detailslistes" routerLinkActive="active" class="btn">Retour</a></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a  routerLink="/detailslistes" routerLinkActive="active" class="btn">Retour</a></td>
                     </tr>
                 </table>
             </div>
@@ -31,7 +31,7 @@
                     <h2>La liste des postulants tirés :</h2>
                 </div>
                 <table id="entete">
-                    <tr *ngIf="postulanttires.length >  0">
+                    <tr>
                         <th>N°</th>
                         <th>Nom</th>
                         <th>Prénom</th>
@@ -39,7 +39,7 @@
                         <th>E-mail</th>
                     </tr>
                     <tr *ngFor="let postulanttire of postulanttires">
-                        <td>{{postulanttire.id}}</td>
+                        <td>{{postulanttire.idPostulant}}</td>
                         <td>{{postulanttire.nomPostulant}}</td>
                         <td>{{postulanttire.prenomPostulant}}</td>
                         <td>{{postulanttire.numeroPostulant}}</td>
