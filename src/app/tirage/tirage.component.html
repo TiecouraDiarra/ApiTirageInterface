@@ -12,7 +12,7 @@
                 <label for="ldtirage">Libellé du tirage :</label>
               </div>
               <div class="col-75">
-                <input type="text" id="ltirage" name="libelletirage" required>
+                <input type="text" id="ltirage" name="libelle" [(ngModel)]="libelle" required>
               </div>
             </div>
             <div class="row">
@@ -20,25 +20,25 @@
                 <label for="natire">Nombre à tirer :</label>
               </div>
               <div class="col-75">
-                <input type="text" id="ntire" name="nombretire" required>
+                <input type="text" id="ntire" name="nombre" [(ngModel)]="nombre" required>
               </div>
             </div>
             <div class="row">
               <div class="col-25">
-                <label for="selection">Selectionnez une liste :</label>
+                <label for="libelleListe">Selectionnez une liste :</label>
               </div>
               <div class="col-75">
-                <select id="selection" name="selection">
-                  <option value="liste1">Liste 1</option>
-                  <option value="liste2">Liste 2</option>
-                  <option value="liste3">Liste 3</option>
-                </select>
+                 <select id="libelleListe" name="libelleListe" [(ngModel)]="libelleListe">
+                  <option >Listes</option>
+                  <option  *ngFor="let ti of tirage" >{{ti[2]}}</option>
+                </select> 
+                <a class="btn btn-outline-success" id="bt" data-bs-toggle="modal"
+                        data-bs-target="#AddEtudiant">Importer le fichier</a>
+                <!-- <input type="text" name="libelleListe" [(ngModel)]="libelleListe" id="libelleListe"> -->
               </div>
             </div>
-            <div class="row">
-              <p class="ou">OU</p>
-            </div>
-            <div class="row">
+            
+            <!-- <div class="row">
                 <input type="file" id="lliste" name="libelleliste">
             </div>
             <div class="row">
@@ -48,14 +48,48 @@
               <div class="col-75">
                 <input type="text" id="lliste" name="libelleliste">
               </div>
-            </div>
-            <br>
-            <div class="row">
-              <input type="submit" value="Effectuez le tirage">
+            </div> -->
+            <div class="Row">
+              <button type="submit" class="effeTirage" (click)="PostTirage()">Effectuez le tirage</button>
+              <!-- <input (click)="PostTirage()" type="submit" value="Effectuez le tirage"> -->
+              
             </div>
             </form>
     </div>
-    
-
 </div>
+
+
+<div class="modal fade" id="AddEtudiant">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div class="card border-0 shadow p-3">
+                    <form [formGroup]="formmodule">
+                        <div class="row mb-3">
+                            <div class="col-4"> <label for="Listelibelle" class="form-label">Libellé de la liste </label>
+                            </div>
+                            <div class="col-8">
+                                <input required type="text" id="Listelibelle" class="form-control" name="libelle" formControlName="libelle">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-8">
+                                <input type="file" class="text-nowrap text-truncate file" formControlName="file" (change)="fileChange($event)">
+                            </div>
+
+                        </div>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <button (click)="importerliste()" type="button" class="btn btn-outline-warning" data-bs-dismiss="modal" style="width: 200px;"><i
+                                    class="bi bi-upload"></i>
+                                Upload</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 

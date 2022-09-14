@@ -38,7 +38,7 @@
 }
 
 .content .cards{
-    padding: 10px 50px;
+    padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -58,26 +58,39 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.pagination{
+    justify-content: center;
+    margin-top: 10px;
+}
+
+;.pagination .current {
+    padding: .1875rem .625rem;
+    background: #004466;
+    color: #fefefe;
+    cursor: default;
+}
+
 .content .cards .card .box h1{
-    font-size: 50;
+    font-size: 30px;
     color: white;
 }
 .content .cards .card .box h3{
     text-align: center;
     font-size: 30px;
     color: white;
+    margin-top: 40px;
 }
 
 .content .content-2{
-    min-height: 60vh;
+    min-height: 53vh;
     justify-content: space-around;
     align-items: flex-start;
     flex-wrap: wrap;
-    margin-bottom: -4vh;
+    margin-bottom: -10vh;
 }
 
 .content .content-2 .recent-payments{
-    min-height: 50vh;
+    margin-bottom: -10vh;
     flex: 5;
     background: white;
     margin: 0px 25px 25px 25px;
@@ -92,7 +105,7 @@
 }*/
 
 .content-2 .cards{
-    padding: 10px 50px;
+    padding: 5px 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -124,7 +137,7 @@
 }
 
 .recent-payments1{
-    min-height: 10vh;
+    min-height: 5vh;
     flex: 5;
     margin-bottom: 20px;
     background: white;
@@ -147,13 +160,20 @@
     height: 80px;
     background: #EA8B04;
     color: white;
-    margin: 150px;
+    margin: 10px;
 }
 
 ul a{
     text-align: center;
     letter-spacing: 0.1rem;
-    
+}
+
+#bt{
+    text-align: center;
+    letter-spacing: 0.1rem;
+    width: 250px;
+    height: 50px;
+    margin-left: 5vh;
 }
 
 /* .bouton{

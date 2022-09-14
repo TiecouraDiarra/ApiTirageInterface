@@ -1,3 +1,4 @@
+
 <div class="container">
     <div class="header">
         <div class="nav">
@@ -18,8 +19,8 @@
                     <tr *ngFor="let listes of liste">
                         <td>{{listes[0]}}</td>
                         <td>{{listes[2]}}</td>
-                        <td>{{listes[1]}}</td>
-                        <td>3</td>
+                        <td>{{listes[1] | date:"dd/MM/yyyy"}}</td>
+                        <td>{{ntirage}}</td>
                     </tr>
                 </table>
             </div>
@@ -29,18 +30,24 @@
             <div class="recent-payments">
                 <div class="title">
                     <h2>Les tirages effectués sur la liste :</h2>
+                    <div class="row">
+                        <input type="text" name="" class="search" [(ngModel)]="searchText" placeholder="Rechercher">
+                        
+                    </div>
                 </div>
                 <table id="entete">
                     <tr>
                         <th>N°</th>
                         <th>Libellé</th>
                         <th>Date</th>
+                        <th>Nombre Postulant</th>
                         <th>Action</th>
                     </tr>
-                    <tr *ngFor="let tirages of tirage">
+                    <tr *ngFor="let tirages of tirage | filter:searchText | paginate:{itemsPerPage :5, currentPage:p}; let id = index" >
                         <td>{{tirages[0]}}</td>
                         <td>{{tirages[2]}}</td>
-                        <td>{{tirages[1]}}</td>
+                        <td>{{tirages[1] | date:"dd/MM/yyyy"}}</td>
+                        <td>{{tirages[3]}}</td>
                         <td><a (click)="goToDettailliste(tirages[0])" class="btn">Savoir plus</a></td>
                     </tr>
                     <!-- <tr>
@@ -56,6 +63,7 @@
                         <td><a routerLink="/detailtirage" routerLinkActive="active" class="btn">Savoir plus</a></td>
                     </tr> -->
                 </table>
+                <pagination-controls (pageChange)="p = $event" class="pagination"></pagination-controls>
             </div>
         </div>
     </div>

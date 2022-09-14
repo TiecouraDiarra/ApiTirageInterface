@@ -19,7 +19,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td><a  routerLink="/detailslistes" routerLinkActive="active" class="btn">Retour</a></td>
+                        <td><a  routerLink="/detailslistes/1" routerLinkActive="active" class="btn">Retour</a></td>
                     </tr>
                 </table>
             </div>
@@ -29,6 +29,10 @@
             <div class="recent-payments">
                 <div class="title">
                     <h2>La liste des postulants tirés :</h2>
+                    <div class="row">
+                        <input type="text" name="" class="search" [(ngModel)]="searchText" placeholder="Rechercher">
+                        
+                    </div>
                 </div>
                 <table id="entete">
                     <tr>
@@ -38,12 +42,12 @@
                         <th>Numéro</th>
                         <th>E-mail</th>
                     </tr>
-                    <tr *ngFor="let postulanttire of postulanttires">
-                        <td>{{postulanttire.idPostulant}}</td>
-                        <td>{{postulanttire.nomPostulant}}</td>
-                        <td>{{postulanttire.prenomPostulant}}</td>
-                        <td>{{postulanttire.numeroPostulant}}</td>
-                        <td>{{postulanttire.emailPostulant}}</td>
+                    <tr *ngFor="let postulanttire of postulanttires | filter:searchText | paginate:{itemsPerPage :5, currentPage:p}; let id = index">
+                        <td>{{postulanttire[2]}}</td>
+                        <td>{{postulanttire[3]}}</td>
+                        <td>{{postulanttire[5]}}</td>
+                        <td>{{postulanttire[4]}}</td>
+                        <td>{{postulanttire[1]}}</td>
                     </tr>
                     <!-- <tr>
                         <td>2</td>
@@ -60,6 +64,7 @@
                         <td>tiec@gmail.com</td>
                     </tr> -->
                 </table>
+                <pagination-controls (pageChange)="p = $event" class="pagination"></pagination-controls>
             </div>
         </div>
     </div>

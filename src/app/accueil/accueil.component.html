@@ -9,13 +9,13 @@
             <div class="card">
                 <div class="box">
                     <h1>Listes tirées</h1>
-                    <h3>12</h3>
+                    <h3>{{ntirage}}</h3>
                 </div>
             </div>
             <div class="card">
                 <div class="box">
                     <h1>Tirages effectués</h1>
-                    <h3>20</h3>
+                    <h3>{{tirageTotal}}</h3>
                 </div>
             </div>
             <div class="card">
@@ -29,114 +29,17 @@
         <div class="content-2">
             <div class="recent-payments">
                 <div class="cards">
-                        <div class="card" *ngFor="let listes of liste">
+                        <div class="card" *ngFor="let listes of liste | filter:searchText | paginate:{itemsPerPage :10, currentPage:p}; let id = index">
                             <a (click)="goToDettailliste(listes[0])">
                                 <div class="box">
                                     <h1>{{listes[2]}}</h1>
-                                    <h3>3 Tirages</h3>
+                                    <h3>1 Tirages</h3>
                                 </div>
                             </a>
                         </div>
-                    
-                    <!-- <a routerLink="/detailslistes" routerLinkActive="active">
-                        <div class="card" *ngFor="let listes of liste">
-                            <div class="box">
-                                <h1>{{listes[2]}}</h1>
-                                <h3>3 Tirages</h3>
-                            </div>
-                        </div>
-                    </a> -->
-                    <!-- <div class="card">
-                        <div class="box">
-                            <h1>Liste 2</h1>
-                            <h3>3 Tirages</h3>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="box">
-                            <h1>Liste 3</h1>
-                            <h3>3 Tirages</h3>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="box">
-                            <h1>Liste 4</h1>
-                            <h3>3 Tirages</h3>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="box">
-                            <h1>Liste 4</h1>
-                            <h3>3 Tirages</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="cards">
-                    <div class="card">
-                        <div class="box">
-                            <h1>Liste 1</h1>
-                            <h3>3 Tirages</h3>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="box">
-                            <h1>Liste 2</h1>
-                            <h3>3 Tirages</h3>
-                        </div>
-                    </div>
-                    <div class="card">
                         
-                            <div class="box">
-                                <h1>Liste 3</h1>
-                                <h3>3 Tirages</h3>
-                            </div>
-                        
-                    </div>
-                    <div class="card">
-                        <div class="box">
-                            <h1>Liste 4</h1>
-                            <h3>3 Tirages</h3>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="box">
-                            <h1>Liste 4</h1>
-                            <h3>3 Tirages</h3>
-                        </div>
-                    </div>
                 </div>
-                <div class="cards">
-                    <div class="card">
-                        <div class="box">
-                            <h1>Liste 1</h1>
-                            <h3>3 Tirages</h3>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="box">
-                            <h1>Liste 2</h1>
-                            <h3>3 Tirages</h3>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="box">
-                            <h1>Liste 3</h1>
-                            <h3>3 Tirages</h3>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="box">
-                            <h1>Liste 4</h1>
-                            <h3>3 Tirages</h3>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="box">
-                            <h1>Liste 4</h1>
-                            <h3>3 Tirages</h3>
-                        </div>
-                    </div> -->
-                </div>
+                <pagination-controls (pageChange)="p = $event" class="pagination"></pagination-controls>
             </div>
             <!--<div class="new-students"></div>-->
         </div>
@@ -145,13 +48,49 @@
                 <!-- <button>Importer une liste</button>
                 <button>Nouveau tirage</button> -->
                 <ul>
-                    <a routerLink="/accueil"
-                        routerLinkActive="active" class="in">Importer le fichier</a>
+                    <a class="btn btn-outline-success" id="bt" data-bs-toggle="modal"
+                        data-bs-target="#AddEtudiant">Importer le fichier</a>
                     <a routerLink="/tirage"
-                        routerLinkActive="active">Nouveau tirage</a>
+                        routerLinkActive="active" >Nouveau tirage</a>
+                        <!-- <div class="col-3"> <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                            data-bs-target="#AddEtudiant">importer fichier <i class="bi bi-upload"></i></button> </div> -->
                 </ul>
             </div>
         </div>
         
+    </div>
+</div>
+
+<div class="modal fade" id="AddEtudiant">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div class="card border-0 shadow p-3">
+                    <form [formGroup]="formmodule">
+                        <div class="row mb-3">
+                            <div class="col-4"> <label for="Listelibelle" class="form-label">LIBELLE LISTE</label>
+                            </div>
+                            <div class="col-8">
+                                <input required type="text" id="Listelibelle" class="form-control" name="libelle" formControlName="libelle">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-8">
+                                <input type="file" class="text-nowrap text-truncate file" formControlName="file" (change)="fileChange($event)">
+                            </div>
+
+                        </div>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <button (click)="importerliste()" type="button" class="btn btn-outline-warning" data-bs-dismiss="modal"><i
+                                    class="bi bi-upload"></i> 
+                                Upload</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+             
+        </div>
     </div>
 </div>

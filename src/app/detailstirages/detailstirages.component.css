@@ -47,7 +47,10 @@
     flex-wrap: wrap;
     margin-top: -4vh;
 }
-
+.pagination{
+    justify-content: center;
+    margin-top: 10px;
+}
 .content .content-1 .recent-payments{
     min-height: 15vh;
     flex: 5;
@@ -61,7 +64,7 @@
 
 .content .content-2 .recent-payments{
     margin-top: -4vh;
-    min-height: 80vh;
+    /* min-height: 80vh; */
     flex: 5;
     background: white;
     margin: 0px 25px 25px 25px;
@@ -117,4 +120,11 @@ th{
 td{
     font-size: 20px;
     padding: 10px;
+}
+
+input{
+    border-radius: 2rem;
+    border: transparent;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-size: 20px;
 }
