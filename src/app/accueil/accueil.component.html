@@ -30,7 +30,7 @@
             <div class="recent-payments">
                 <div class="cards">
                         <div class="card" *ngFor="let listes of liste | filter:searchText | paginate:{itemsPerPage :10, currentPage:p}; let id = index">
-                            <a (click)="goToDettailliste(listes[0])">
+                            <a class="btn" (click)="goToDettailliste(listes[0])">
                                 <div class="box">
                                     <h1>{{listes[2]}}</h1>
                                     <h3>1 Tirages</h3>

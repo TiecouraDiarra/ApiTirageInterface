@@ -29,7 +29,7 @@
               </div>
               <div class="col-75">
                  <select id="libelleListe" name="libelleListe" [(ngModel)]="libelleListe">
-                  <option >Listes</option>
+                  <option style="background: red;">Listes</option>
                   <option  *ngFor="let ti of tirage" >{{ti[2]}}</option>
                 </select> 
                 <a class="btn btn-outline-success" id="bt" data-bs-toggle="modal"
