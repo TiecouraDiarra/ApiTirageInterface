@@ -17,6 +17,13 @@ export class PostulanttireService {
     return this.http.get(`${this.urlPT}/${id}`);
   }
 
+  //Recuperer IDListePostulant
+  urlILP="http://localhost:8080/Tirage/RecupererIdListePost"
+  getIdLiPo(idLiP:number):Observable<Listepostulant[]>
+  {
+    return this.http.get<Listepostulant[]>(`${this.urlILP}/${idLiP}`);
+  }
+
   getToutesListe():Observable<Listepostulant[]>
   {
     return this.http.get<Listepostulant[]>("http://localhost:8080/Tirage/AfficherToutesListe");
@@ -67,5 +74,31 @@ export class PostulanttireService {
   }
 
 
+  //Recuperer l'id de la liste
+  li="http://localhost:8080/Tirage/RetrouverIdListePostulant"
+  RetrouverParId(idListePostulant:number):Observable<any>{
+    return this.http.get(`${this.li}/${idListePostulant}`);
+  }
+
+  //Recuperer l'id du tirage
+  ti="http://localhost:8080/Tirage/RetrouverIdIdTirage"
+  RetrouverParIdTirage(idTirage:number):Observable<any>{
+    return this.http.get(`${this.ti}/${idTirage}`);
+  }
+
+  //Pour afficher tous les postulants sur une liste donnée
+  po="http://localhost:8080/Postulant/AfficherToutesListe"
+  AfficherPostulantListeDonnee(idListePostulant:number):Observable<Object>{
+     return this.http.get(`${this.po}/${idListePostulant}`);
+  }
+
+
+  //Afficher le nombre de liste Tirée
+  AfficherNombreListeTiree():Observable<Object>{
+    return this.http.get("http://localhost:8080/Postulant/AfficherToutesListeTiree")
+  }
+
+
+  
 
 }

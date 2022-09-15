@@ -15,7 +15,7 @@ export class AccueilComponent implements OnInit {
   formmodule!:FormGroup;
   file:any;
   fichier:any;
-
+  ListeTiree:any;
 
   liste : any;
   listeI : any;
@@ -45,16 +45,18 @@ export class AccueilComponent implements OnInit {
       for (const t of this.liste) {
             this.ntirage += 1;
           }
-
-      
-      
-      
     });
     this.service.getTirageTotal().subscribe(data=>{
       this.tirageTotal=data;
       console.log(data);
       
     });
+
+    this.service.AfficherNombreListeTiree().subscribe(data=>{
+      this.ListeTiree=data
+    })
+
+  
     // this.service.getToutesTirages(this.id).subscribe(data=>{
     //   console.log(data)
     //   this.tirage=data;

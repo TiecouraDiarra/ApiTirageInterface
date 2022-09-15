@@ -13,13 +13,15 @@
                         <th>N°</th>
                         <th>Libellé</th>
                         <th>Date</th>
+                        <th>N° Postulants Tirés</th>
                         <th>Action</th>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td><a  routerLink="/detailslistes/1" routerLinkActive="active" class="btn">Retour</a></td>
+                        <td>{{tirage.idTirage}}</td>
+                        <td>{{tirage.libelle}}</td>
+                        <td>{{tirage.dateTirage | date:"dd/MM/yyyy"}}</td>
+                        <td>{{tirage.nombrePostTire}}</td>
+                        <td><a  (click)="back()" class="btn">Retour</a></td>
                     </tr>
                 </table>
             </div>

@@ -13,6 +13,7 @@ export class DetailstiragesComponent implements OnInit {
   postulanttires : any;
   liste : any;
   id:number=0;
+  tirage : any;
   p:number=1;
   searchText : any;
   detailstirage : Detailstirages = new Detailstirages();
@@ -25,9 +26,18 @@ export class DetailstiragesComponent implements OnInit {
       this.postulanttires=data;
       
     });
+
+    this.service.RetrouverParIdTirage(this.id).subscribe(data=>{
+      // this.detailstirage=data;
+      this.tirage=data;
+      
+    });
   }
 
 
+  back(): void {
+    window.history.back()
+  }
 
 }
 

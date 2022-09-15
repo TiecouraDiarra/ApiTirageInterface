@@ -37,21 +37,8 @@
                 <!-- <input type="text" name="libelleListe" [(ngModel)]="libelleListe" id="libelleListe"> -->
               </div>
             </div>
-            
-            <!-- <div class="row">
-                <input type="file" id="lliste" name="libelleliste">
-            </div>
-            <div class="row">
-              <div class="col-25">
-                <label for="ldliste">Libellé de la liste :</label>
-              </div>
-              <div class="col-75">
-                <input type="text" id="lliste" name="libelleliste">
-              </div>
-            </div> -->
             <div class="Row">
-              <button type="submit" class="effeTirage" (click)="PostTirage()">Effectuez le tirage</button>
-              <!-- <input (click)="PostTirage()" type="submit" value="Effectuez le tirage"> -->
+              <button type="submit" data-bs-toggle="modal" data-bs-target="#Tirage" class="effeTirage" (click)="PostTirage()">Effectuez le tirage</button>
               
             </div>
             </form>
@@ -70,19 +57,20 @@
                             <div class="col-4"> <label for="Listelibelle" class="form-label">Libellé de la liste </label>
                             </div>
                             <div class="col-8">
-                                <input required type="text" id="Listelibelle" class="form-control" name="libelle" formControlName="libelle">
+                                <input required type="text" id="Listelibelle" class="form-control" name="libelle" formControlName="libelle" required>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-8">
-                                <input type="file" class="text-nowrap text-truncate file" formControlName="file" (change)="fileChange($event)">
+                                <input type="file" class="text-nowrap text-truncate file" formControlName="file" (change)="fileChange($event)" required>
                             </div>
 
                         </div>
                         <div class="d-grid gap-2 col-6 mx-auto">
-                            <button (click)="importerliste()" type="button" class="btn btn-outline-warning" data-bs-dismiss="modal" style="width: 200px;"><i
+                            <button (click)="importerliste()" type="button" class="btn btn-outline-warning" data-bs-toggle="modal"
+                            data-bs-target="#Importer" data-bs-dismiss="modal" style="width: 200px;"><i
                                     class="bi bi-upload"></i>
-                                Upload</button>
+                                Importer</button>
                         </div>
                     </form>
                 </div>
@@ -90,6 +78,36 @@
             </div>
         </div>
     </div>
+</div>
+
+
+<div class="modal fade" id="Tirage">
+  <div class="modal-dialog">
+      <div class="modal-content">
+
+          <div class="modal-body">
+              <div class="card border-0 shadow p-3">
+              <p>Tirage effectué avec succés</p>
+              </div>
+
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="Importer">
+  <div class="modal-dialog">
+      <div class="modal-content">
+
+          <div class="modal-body">
+              <div class="card border-0 shadow p-3">
+              <p>Fichier importé avec succés</p>
+              </div>
+
+          </div>
+      </div>
+  </div>
 </div>
 
 

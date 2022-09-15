@@ -14,12 +14,14 @@
                         <th>N°</th>
                         <th>Libellé</th>
                         <th>Date</th>
+                        <th>Nombre de Postulant</th>
                         <th>Nombre Tirage</th>
                     </tr>
-                    <tr *ngFor="let listes of liste">
-                        <td>{{listes[0]}}</td>
-                        <td>{{listes[2]}}</td>
-                        <td>{{listes[1] | date:"dd/MM/yyyy"}}</td>
+                    <tr>
+                        <td>{{List.idListePostulant}}</td>
+                        <td>{{List.libelle}}</td>
+                        <td>{{List.dateListePostulant | date:"dd/MM/yyyy"}}</td>
+                        <td>{{npostulant}}</td>
                         <td>{{ntirage}}</td>
                     </tr>
                 </table>
@@ -29,7 +31,36 @@
         <div class="content-2">
             <div class="recent-payments">
                 <div class="title">
-                    <h2>Les tirages effectués sur la liste :</h2>
+                    <h2>Les tirages effectués sur la <strong>{{List.libelle}}</strong></h2>
+                    <div class="row">
+                        <input type="text" name="" class="search" [(ngModel)]="searchText" placeholder="Rechercher">
+                        
+                    </div>
+                </div>
+                <table id="entete">
+                    <tr class="ttt">
+                        <th>N°</th>
+                        <th>Libellé</th>
+                        <th>Date</th>
+                        <th>N° Postulants Tirés</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr *ngFor="let tirages of tirage | filter:searchText " >
+                        <td>{{tirages[0]}}</td>
+                        <td>{{tirages[2]}}</td>
+                        <td>{{tirages[1] | date:"dd/MM/yyyy"}}</td>
+                        <td>{{tirages[3]}}</td>
+                        <td><a (click)="goToDettailliste(tirages[0])" class="btn">Savoir plus</a></td>
+                    </tr>
+                
+                </table>
+                <!-- <pagination-controls (pageChange)="p = $event" class="pagination"></pagination-controls> -->
+            </div>
+        </div>
+        <div class="content-3">
+            <div class="recent-payments">
+                <div class="title">
+                    <h2>Les postulants de la <strong>{{List.libelle}}</strong></h2>
                     <div class="row">
                         <input type="text" name="" class="search" [(ngModel)]="searchText" placeholder="Rechercher">
                         
@@ -38,34 +69,21 @@
                 <table id="entete">
                     <tr>
                         <th>N°</th>
-                        <th>Libellé</th>
-                        <th>Date</th>
-                        <th>Nombre Postulant</th>
-                        <th>Action</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Numèro</th>
+                        <th>E-mail</th>
                     </tr>
-                    <tr *ngFor="let tirages of tirage | filter:searchText | paginate:{itemsPerPage :5, currentPage:p}; let id = index" >
-                        <td>{{tirages[0]}}</td>
-                        <td>{{tirages[2]}}</td>
-                        <td>{{tirages[1] | date:"dd/MM/yyyy"}}</td>
-                        <td>{{tirages[3]}}</td>
-                        <td><a (click)="goToDettailliste(tirages[0])" class="btn">Savoir plus</a></td>
+                    <tr *ngFor="let postulants of postulant | filter:searchText | paginate:{itemsPerPage :5, currentPage:p}; let id = index" >
+                        <td>{{postulants[0]}}</td>
+                        <td>{{postulants[2]}}</td>
+                        <td>{{postulants[4]}}</td>
+                        <td>{{postulants[3]}}</td>
+                        <td>{{postulants[1]}}</td>
                     </tr>
-                    <!-- <tr>
-                        <td>2</td>
-                        <td>Tirage 2</td>
-                        <td>15-09-2022</td>
-                        <td><a routerLink="/detailtirage" routerLinkActive="active" class="btn">Savoir plus</a></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Tirage 3</td>
-                        <td>15-09-2022</td>
-                        <td><a routerLink="/detailtirage" routerLinkActive="active" class="btn">Savoir plus</a></td>
-                    </tr> -->
                 </table>
                 <pagination-controls (pageChange)="p = $event" class="pagination"></pagination-controls>
             </div>
-        </div>
     </div>
     
 </div>

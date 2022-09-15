@@ -21,7 +21,7 @@
             <div class="card">
                 <div class="box">
                     <h1>Listes non tirées</h1>
-                    <h3>5</h3>
+                    <h3>{{ntirage}}</h3>
                 </div>
             </div>
         </div>
@@ -35,9 +35,9 @@
                                     <h1>{{listes[2]}}</h1>
                                     <h3>1 Tirages</h3>
                                 </div>
-                            </a>
+                            </a> 
                         </div>
-                        
+                         
                 </div>
                 <pagination-controls (pageChange)="p = $event" class="pagination"></pagination-controls>
             </div>
@@ -82,9 +82,10 @@
 
                         </div>
                         <div class="d-grid gap-2 col-6 mx-auto">
-                            <button (click)="importerliste()" type="button" class="btn btn-outline-warning" data-bs-dismiss="modal"><i
+                            <button (click)="importerliste()" type="button" class="btn btn-outline-warning" data-bs-dismiss="modal" data-bs-toggle="modal"
+                            data-bs-target="#Importer"><i
                                     class="bi bi-upload"></i> 
-                                Upload</button>
+                                Importer</button>
                         </div>
                     </form>
                 </div>
@@ -94,3 +95,18 @@
         </div>
     </div>
 </div>
+
+
+<div class="modal fade" id="Importer">
+    <div class="modal-dialog">
+        <div class="modal-content">
+  
+            <div class="modal-body">
+                <div class="card border-0 shadow p-3">
+                <p>Fichier importé avec succés</p>
+                </div>
+  
+            </div>
+        </div>
+    </div>
+  </div>
