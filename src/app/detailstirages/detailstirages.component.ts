@@ -15,6 +15,7 @@ export class DetailstiragesComponent implements OnInit {
   id:number=0;
   tirage : any;
   p:number=1;
+  List:any;
   searchText : any;
   detailstirage : Detailstirages = new Detailstirages();
   constructor(private service : PostulanttireService, private route:ActivatedRoute, private router:Router) { }
@@ -31,6 +32,9 @@ export class DetailstiragesComponent implements OnInit {
       // this.detailstirage=data;
       this.tirage=data;
       
+    });
+    this.service.RetrouverParId(this.id).subscribe(data=>{
+      this.List=data;
     });
   }
 

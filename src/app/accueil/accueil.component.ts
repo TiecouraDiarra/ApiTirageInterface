@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { PostulanttireService } from '../service/postulanttire.service';
 import { HttpClient } from '@angular/common/http';
@@ -18,17 +18,20 @@ export class AccueilComponent implements OnInit {
   ListeTiree:any;
 
   liste : any;
+  listeNonTiree : any;
   listeI : any;
   searchText:any;
   tirageTotal : any;
   tirage:any;
   p:number=1;
   ntirage: number=0;
+  ntirageParListe :any;
   tirageNombreUneListe : any;
   id : number = 0;
-  constructor(private service : PostulanttireService, private router:Router, private formB:FormBuilder, private http:HttpClient) { }
+  constructor(public service : PostulanttireService, private route:ActivatedRoute, private router:Router, private formB:FormBuilder, private http:HttpClient) { }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['id']
 
     this.formmodule=this.formB.group({
       libelle:['', Validators.required],
@@ -45,6 +48,7 @@ export class AccueilComponent implements OnInit {
       for (const t of this.liste) {
             this.ntirage += 1;
           }
+     
     });
     this.service.getTirageTotal().subscribe(data=>{
       this.tirageTotal=data;
@@ -54,6 +58,10 @@ export class AccueilComponent implements OnInit {
 
     this.service.AfficherNombreListeTiree().subscribe(data=>{
       this.ListeTiree=data
+    });
+
+    this.service.AfficherNombreListeNonTiree().subscribe(data=>{
+      this.listeNonTiree=data
     })
 
   

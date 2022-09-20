@@ -9,6 +9,9 @@ import { Listepostulant } from '../classes/listepostulant';
 })
 export class PostulanttireService {
 
+  // liste:any=[];
+  nomtirage: number=0;
+
   constructor(private http:HttpClient) { }
 
   urlPT="http://localhost:8080/TiragePTS/AfficherListeParTirage"
@@ -97,6 +100,12 @@ export class PostulanttireService {
   AfficherNombreListeTiree():Observable<Object>{
     return this.http.get("http://localhost:8080/Postulant/AfficherToutesListeTiree")
   }
+
+  //Afficher le nombre de liste non Tirée
+  AfficherNombreListeNonTiree():Observable<Object>{
+    return this.http.get("http://localhost:8080/Postulant/AfficherToutesListeNonTiree")
+  }
+
 
 
   

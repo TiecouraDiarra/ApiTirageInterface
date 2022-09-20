@@ -29,13 +29,13 @@
               </div>
               <div class="col-75">
                  <select id="libelleListe" name="libelleListe" [(ngModel)]="libelleListe">
-                  <option style="background: red;">Listes</option>
+                  <option style="background: red; text-align: center;">--Listes--</option>
                   <option  *ngFor="let ti of tirage" >{{ti[2]}}</option>
                 </select> 
                 <a class="btn btn-outline-success" id="bt" data-bs-toggle="modal"
                         data-bs-target="#AddEtudiant">Importer le fichier</a>
                 <!-- <input type="text" name="libelleListe" [(ngModel)]="libelleListe" id="libelleListe"> -->
-              </div>
+              </div> 
             </div>
             <div class="Row">
               <button type="submit" data-bs-toggle="modal" data-bs-target="#Tirage" class="effeTirage" (click)="PostTirage()">Effectuez le tirage</button>

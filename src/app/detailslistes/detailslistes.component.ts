@@ -22,7 +22,7 @@ export class DetailslistesComponent implements OnInit {
   liste : any;
   List:any;
   ntirage: number=0;
-  constructor(private service : PostulanttireService, private route:ActivatedRoute, private router:Router) { }
+  constructor(public service : PostulanttireService, private route:ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id']

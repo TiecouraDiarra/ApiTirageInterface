@@ -23,6 +23,10 @@
     position: absolute;
 }
 
+h2{
+    text-align: center;
+}
+
 .container .content{
     position: relative;
     margin-top: 10vh;
